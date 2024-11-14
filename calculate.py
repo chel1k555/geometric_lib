@@ -6,9 +6,9 @@ funcs = ['perimeter', 'area']
 sizes = {}
 
 def calc(fig, func, size):
-```
+"""
 функция принимает на вход название фигуры, функцию для нее и размеры сторон для фигур, а для круга радиус
-```
+"""
 	assert fig in figs
 	assert func in funcs
 
