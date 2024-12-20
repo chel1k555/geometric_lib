@@ -4,7 +4,7 @@ import square
 
 figs = ['circle', 'square']
 funcs = ['perimeter', 'area']
-sizes = {}
+sizes = {} 
 
 def calc(fig, func, size):
 	assert fig in figs
