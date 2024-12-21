@@ -1,33 +1,22 @@
-import circle
-import square
-import triangle
+import circle  # noqa: F401
+import square  # noqa: F401
+import triangle  # noqa: F401
 
 figs = ['circle', 'square', 'triangle']
 funcs = ['perimeter', 'area']
 sizes = {
-    'circle-area': 1,
-    'circle-perimeter': 1,
-    'square-area': 1,
-    'square-perimeter': 1,
-    'triangle-area': 3,
-    'triangle-perimeter': 3
+    'perimeter-circle': 1,
+    'area-circle': 1,
+    'perimeter-square': 1,
+    'area-square': 1,
+    'perimeter-triangle': 3,
+    'area-triangle': 3
 }
 
 
 def calc(fig, func, size):
-    assert fig in figs, "Invalid figure"
-    assert func in funcs, "Invalid function"
-
-    key = f'{fig}-{func}'
-    args = sizes.get(key)
-    assert args is not None
-    assert len(size) == args
-
-    assert all(s >= 0 for s in size)
-
-    if fig == "triangle":
-        a, b, c = size
-        assert a + b > c and a + c > b and b + c > a
+    assert fig in figs
+    assert func in funcs
 
     result = eval(f'{fig}.{func}(*{size})')
     return result
@@ -36,7 +25,7 @@ def calc(fig, func, size):
 if __name__ == "__main__":
     func = ''
     fig = ''
-    size = []
+    size = list()
 
     while fig not in figs:
         fig = input(f"Enter figure name, available are {figs}:\n")
@@ -44,10 +33,14 @@ if __name__ == "__main__":
     while func not in funcs:
         func = input(f"Enter function name, available are {funcs}:\n")
 
-    while len(size) != sizes.get(f"{fig}-{func}", 1):
-        size = list(map(int, input(
-            "Input figure sizes separated by space, 1 for circle and square:\n"
-        ).split()))
+    while len(size) != sizes.get(f"{func}-{fig}", 1):
+        size = list(
+            map(
+                int,
+                input("Input figure sizes separated by space,"
+                      " 1 for circle and square, 3 for triangle\n").split(' ')
+                )
+                    )
 
     result = calc(fig, func, size)
-    print(f"Result: {result}")
+    print(f'{func} of {fig} is {result}')
