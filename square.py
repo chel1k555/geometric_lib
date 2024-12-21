@@ -1,12 +1,10 @@
-
-
 def area(a):
-    if a < 0:
-        raise AssertionError("side can't be negative")
+"""
+функция на вход принимает размер стороны квадрата и возвращает его площадь
+"""
     return a * a
-
-
 def perimeter(a):
-    if a < 0:
-        raise AssertionError("side can't be negative")
+"""
+функция на вход принимает размер стороны квадрата и возвращает его периметр
+"""
     return 4 * a
