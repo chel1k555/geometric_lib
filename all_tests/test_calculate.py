@@ -4,19 +4,19 @@ from math import pi
 
 
 class TestCalculate(unittest.TestCase):
-    def test_square_area(self):
-        fig = 'square'
-        func = 'area'
-        size = [2]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 4)
-
     def test_circle_area(self):
         fig = 'circle'
         func = 'area'
         size = [1]
         res = calc(fig, func, size)
         self.assertEqual(res, pi)
+
+    def test_square_area(self):
+        fig = 'square'
+        func = 'area'
+        size = [1]
+        res = calc(fig, func, size)
+        self.assertEqual(res, 1)
 
     def test_triangle_area(self):
         fig = 'triangle'
@@ -31,20 +31,20 @@ class TestCalculate(unittest.TestCase):
         size = [1]
         res = calc(fig, func, size)
         self.assertEqual(res, 2 * pi)
-        
+
+    def test_square_perimeter(self):
+        fig = 'square'
+        func = 'perimeter'
+        size = [1]
+        res = calc(fig, func, size)
+        self.assertEqual(res, 4)
+
     def test_triangle_perimeter(self):
         fig = 'triangle'
         func = 'perimeter'
         size = [5, 12, 13]
         res = calc(fig, func, size)
         self.assertEqual(res, 30)
-
-    def test_square_perimeter(self):
-        fig = 'square'
-        func = 'perimeter'
-        size = [3]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 12)
 
     def test_wrong_fig(self):
         fig = 'rectangle'
