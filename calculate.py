@@ -49,5 +49,6 @@ if __name__ == "__main__":
             "Input figure sizes separated by space, 1 for circle and square:\n"
         ).split()))
 
+    
     result = calc(fig, func, size)
     print(f"Result: {result}")
