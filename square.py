@@ -1,5 +1,4 @@
 
-
 def area(a):
     if a < 0:
         raise AssertionError("side can't be negative")
