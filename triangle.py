@@ -1,14 +1,10 @@
-from math import sqrt
-
-
 def area(a, b, c):
-    if a < 0 or b < 0 or c < 0:
-        raise AssertionError("sides can't be negative")
-    x = (a + b + c) / 2
-    return sqrt(x * (x - a) * (x - b) * (x - c))
-
-
+"""
+функция принимает на вход три стороны треугольника и возвращает его площадь
+"""
+    return (a + b + c) / 2
 def perimeter(a, b, c):
-    if a < 0 or b < 0 or c < 0:
-        raise AssertionError("sides can't be negative")
+"""
+функция принимает на вход три стороны треугольника и возвращает его периметр
+"""
     return a + b + c
