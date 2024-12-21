@@ -1,15 +1,13 @@
 import math
 
+
 def area(r):
-"""
-функция на вход принимает значение радиуса и возвращает площадь круга
-"""
+    if r < 0:
+        raise AssertionError("raduis can't be negative")
     return math.pi * r * r
 
 
 def perimeter(r):
-"""
-функция на вход принимает значение радиуса и возвращает периметр круга
-"""
+    if r < 0:
+        raise AssertionError("raduis can't be negative")
     return 2 * math.pi * r
-
