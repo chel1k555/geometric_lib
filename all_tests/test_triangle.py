@@ -33,6 +33,5 @@ class TestTriangle(unittest.TestCase):
         with self.assertRaises(AssertionError):
             perimeter(x, y, z)
 
-
 if __name__ == '__main__':
     unittest.main()
