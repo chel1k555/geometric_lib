@@ -1,38 +1,44 @@
 import unittest
-from math import pi
-from circle import area, perimeter
+import square
+from scenarios import scenarios
 
 
-class TestCircle(unittest.TestCase):
+class TestSquareArea(unittest.TestCase):
     def test_area(self):
-        radius = 1
-        res = area(radius)
-        self.assertEqual(res, pi)
+        for side, expected in scenarios['square']['area']:
+            with self.subTest(side=side, expected=expected):
+                self.assertEqual(square.area(side), expected)
 
+    def test_area_invalid_negative(self):
+        for invalid_side in [-1, -10]:
+            with self.subTest(side=invalid_side):
+                with self.assertRaises(ValueError):
+                    square.area(invalid_side)
+
+    def test_area_invalid_non_numeric(self):
+        for invalid_side in ['a', None]:
+            with self.subTest(side=invalid_side):
+                with self.assertRaises(TypeError):
+                    square.area(invalid_side)
+
+
+class TestSquarePerimeter(unittest.TestCase):
     def test_perimeter(self):
-        radius = 1
-        res = perimeter(radius)
-        self.assertEqual(res, 2 * pi)
+        for side, expected in scenarios['square']['perimeter']:
+            with self.subTest(side=side, expected=expected):
+                self.assertEqual(square.perimeter(side), expected)
 
-    def test_area_zero(self):
-        radius = 0
-        res = area(radius)
-        self.assertEqual(res, 0)
+    def test_perimeter_invalid_negative(self):
+        for invalid_side in [-1, -10]:
+            with self.subTest(side=invalid_side):
+                with self.assertRaises(ValueError):
+                    square.perimeter(invalid_side)
 
-    def test_perimeter_zero(self):
-        radius = 0
-        res = perimeter(radius)
-        self.assertEqual(res, 0)
-
-    def test_area_neg(self):
-        radius = -1
-        with self.assertRaises(AssertionError):
-            area(radius)
-
-    def test_perimeter_neg(self):
-        radius = -1
-        with self.assertRaises(AssertionError):
-            perimeter(radius)
+    def test_perimeter_invalid_non_numeric(self):
+        for invalid_side in ['a', None]:
+            with self.subTest(side=invalid_side):
+                with self.assertRaises(TypeError):
+                    square.perimeter(invalid_side)
 
 
 if __name__ == '__main__':
