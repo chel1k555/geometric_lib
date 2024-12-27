@@ -1,7 +1,6 @@
 import circle
 import square
 
-
 figs = ['circle', 'square']
 funcs = ['perimeter', 'area']
 sizes = {}
@@ -31,6 +30,3 @@ if __name__ == "__main__":
 		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
 	
 	calc(fig, func, size)
-
-
-
